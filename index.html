@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetLit - Coming Soon</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Container for content alignment */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3a86ff;
+        }
+
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3a86ff;
+        }
+
+        /* Hero section with logo background */
+        .hero {
+            padding: 180px 0 140px;
+            background-color: #f5f7fa;
+            background-image: url('https://github.com/BadgerGetLit/GetLit/blob/main/Profile_1200x800_001.png'); /* Replace with your logo background */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Semi-transparent overlay to ensure text readability */
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+        }
+
+        /* Features section */
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #3a86ff;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Product showcase */
+        .product-showcase {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 80%;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pre-order section */
+        .pre-order {
+            padding: 100px 0;
+            background-color: #f0f4f8;
+            text-align: center;
+        }
+
+        .pre-order h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .pre-order p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #3a86ff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Replace with your logo text or image -->
+                    GetLit
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#showcase">Gallery</a></li>
+                        <li><a href="#pre-order">Pre-order</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section with background logo and main message -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Introducing an evolution in community</h1>
+            <p>A game changing product that will enhance your interactions with the objects in your life. Designed for performance, simplicity, and innovation.</p>
+            <a href="#pre-order" class="cta-button">Pre-Order Now</a>
+        </div>
+    </section>
+
+    <!-- Features section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Feature One</h3>
+                    <p>Tag it, scan it, register it, own it.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Feature Two</h3>
+                    <p>Tell its story, update its journey.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">♻︎</div>
+                    <h3>Feature Three</h3>
+                    <p>So now it's mine but who's was it? Should it go back home or should it continue its journey with me? Tell the story, play the game.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 GetLit. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+        </div>
+    </section>
+
+    <!-- Product showcase -->
+    <section class="product-showcase" id="showcase">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <!-- Replace with your product image -->
+            <img src="https://github.com/BadgerGetLit/GetLit/blob/main/Lighter_003.jpg" alt="Product Image" class="product-image">
+            <p>Experience the sleek design and intuitive interface of GetLit. Created with attention to detail and user experience in mind.</p>
+        </div>
+    </section>
+
+    <!-- Pre-order section with email link -->
+    <section class="pre-order" id="pre-order">
+        <div class="container">
+            <h2>Reserve Your Product Now</h2>
+            <p>Be among the first to experience GetLit. Pre-orders are now open for a limited first release edition.</p>
+            <!-- Email link for pre-orders -->
+            <a href="mailto:badger@getlit.co.za?subject=Pre-order%20Request&body=I'm%20interested%20in%20pre-ordering%20your%20product." class="cta-button">Email Your Pre-order</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company info -->
+                <div class="footer-column">
+                    <h3>GetLit</h3>
+                    <p>Creating innovative solutions for the light of your life.</p>
+                </div>
+                
+                <!-- Quick links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#showcase">Gallery</a></li>
+                        <li><a href="#pre-order">Pre-order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:badger@getlit.co.za">badger@getlit.co.za</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social media -->
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">F</a>
+                        <a href="#" class="social-link">T</a>
+                        <a href="#" class="social-link">I</a>
+                    </div>
